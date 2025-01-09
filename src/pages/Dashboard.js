@@ -34,6 +34,7 @@ export default function DashboardPage(){
         return <Navigate to="/login" />
     }
 
+
     return (
         <div>
             <NavBar logoutUser={logoutUser} />
