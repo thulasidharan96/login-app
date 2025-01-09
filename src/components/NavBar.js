@@ -25,6 +25,9 @@ export default function NavBar(props) {
                     <li className="nav-item">
                         <Link className="nav-link" to="/about">About</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/contact">Contact us</Link>
+                    </li>
                     {!isAuthenticated() && (
                         <>
                             <li className="nav-item">

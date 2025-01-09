@@ -6,6 +6,7 @@ import DashboardPage from './pages/Dashboard';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import MissingPage from './pages/MissingPage';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<Contact />}/>
           <Route path="*" element={<MissingPage />} />
         </Routes>
       </BrowserRouter>

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { RegisterApi } from '../services/Api';
 import { isAuthenticated } from '../services/Auth';
 import { storeUserData } from '../services/Storage';
-import './RegisterPage.css';
 import { Link, Navigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
