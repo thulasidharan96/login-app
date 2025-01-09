@@ -1,0 +1,16 @@
+
+
+.home-content section { 
+    text-align: center; 
+} 
+
+.home-content h1 { font-size: 2em; 
+    color: #000000; 
+    margin: 20px 0;
+
+} 
+
+.home-content p { font-size: 1.2em; 
+    color:#000000; 
+    margin: 10px 0; 
+}
