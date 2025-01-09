@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar"
 import { UserDetailsApi } from "../services/Api"
 import { logout,isAuthenticated } from "../services/Auth"
 import Footer from "../components/Footer"
+import "../pages/dashboard.css"
 
 export default function DashboardPage(){
     const navigate = useNavigate();
@@ -45,9 +46,12 @@ export default function DashboardPage(){
                                 <p className="text-bold " >Hi {user.name}</p>
                                 <p>Your email is {user.email}</p>
                             </div>)
-                            : <p>Loading...</p>
+                            : <p>Loading...Please Wait</p>
                         }
                     </div>
+                </div>
+                <div className="dash-content">
+                        <button onClick={() => alert( `Firebase ID = ${user.localId}`)}>Show ID</button>
                 </div>
             </main>
             <Footer />
