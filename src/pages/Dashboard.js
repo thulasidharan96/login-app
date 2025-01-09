@@ -46,8 +46,11 @@ export default function DashboardPage() {
           <div>
             <p>Hi {user.name}</p>
             <p>Your email is {user.email}</p>
-            <button onClick={() => alert(`Firebase ID = ${user.localId}`)}>
+            <button onClick={() => alert(`Firebase ID = ${user.localId}`)} style={{padding:10,margin:10,borderRadius:5}}>
               Show ID
+            </button>
+            <button onClick={() => navigate('/contact')} style={{padding:10,margin:10,borderRadius:5}}>
+              Contact Us
             </button>
           </div>
         )}
