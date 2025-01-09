@@ -12,7 +12,6 @@ export default function NavBar(props){
             </button>
             <div className="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul className="navbar-nav mr-auto">
-                    <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
                     {!isAuthenticated() && <li className="nav-item"><Link className="nav-link" to="/register">Register</Link></li>}
                     {!isAuthenticated() && <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>}
                     {isAuthenticated() && <li className="nav-item"><Link className="nav-link" to="/dashboard">Dashboard</Link></li>}
