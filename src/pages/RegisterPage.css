@@ -44,7 +44,7 @@
     padding: 10px 20px;  /* Added padding for better button size */
 }
 
-footer{
+footer {
     margin-top: 61px;
 }
 
@@ -58,4 +58,4 @@ button {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin-top: 1rem; /* Space between button and text */
-  }
+}
