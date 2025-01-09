@@ -11,13 +11,15 @@ export default function NavBar(props){
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul className="navbar-nav mr-auto">
-                    {!isAuthenticated() && <li className="nav-item"><Link className="nav-link" to="/register">Register</Link></li>}
-                    {!isAuthenticated() && <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>}
-                    {isAuthenticated() && <li className="nav-item"><Link className="nav-link" to="/dashboard">Dashboard</Link></li>}
-                    {isAuthenticated() && <li className="nav-item"><a className="nav-link" onClick={props.logoutUser} style={{cursor:"pointer"}}>Logout</a></li>}
-                </ul>
-            </div>
+            <ul className="navbar-nav ml-auto">
+                <Link className="nav-link" to="/">Home</Link>
+                {!isAuthenticated() && <li className="nav-item"><Link className="nav-link" to="/register">Register</Link></li>}
+                {!isAuthenticated() && <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>}
+                {isAuthenticated() && <li className="nav-item"><Link className="nav-link" to="/dashboard">Dashboard</Link></li>}
+                {isAuthenticated() && <li className="nav-item"><a className="nav-link" onClick={props.logoutUser} style={{cursor:"pointer"}}>Logout</a></li>}
+            </ul>
+</div>
+
         </nav>
     )
 }

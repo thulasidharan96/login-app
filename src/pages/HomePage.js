@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import './HomePage.css';
-import '../1.png'
+import '../assets/1.png'
 
 const Home = () => {
   return (
