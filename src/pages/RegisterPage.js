@@ -74,25 +74,26 @@ export default function RegisterPage() {
             <section className="register-block">
                 <div className="container">
                     <div className="row">
-                        <div className="col register-sec">
-                            <h2 className="text-center">Register Now</h2>
+                        <div className="col-md-4 mx-auto login-sec">
+                        <h2 className="text-center p-3">Register Now</h2>
+
                             <form onSubmit={handleSubmit} className="register-form">
-                                <div className="form-group">
+                                <div className="form-group pt-3">
                                     <label htmlFor="name" className="text-uppercase">Name</label>
-                                    <input type="text" className="form-control" onChange={handleInput} name="name" id="name" />
+                                    <input type="text" className="form-control border-dark" onChange={handleInput} name="name" id="name" />
                                     {errors.name.required && <span className="text-danger">Name is required.</span>}
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group pt-3">
                                     <label htmlFor="email" className="text-uppercase">Email</label>
-                                    <input type="text" className="form-control" onChange={handleInput} name="email" id="email" />
+                                    <input type="text" className="form-control border-dark" onChange={handleInput} name="email" id="email" />
                                     {errors.email.required && <span className="text-danger">Email is required.</span>}
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group pt-3">
                                     <label htmlFor="password" className="text-uppercase">Password</label>
-                                    <input className="form-control" type="password" onChange={handleInput} name="password" id="password" />
+                                    <input className="form-control border-dark" type="password" onChange={handleInput} name="password" id="password" />
                                     {errors.password.required && <span className="text-danger">Password is required.</span>}
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group pt-3">
                                     {errors.custom_error && <span className="text-danger"><p>{errors.custom_error}</p></span>}
                                     {loading && (
                                         <div className="text-center">
@@ -101,9 +102,9 @@ export default function RegisterPage() {
                                             </div>
                                         </div>
                                     )}
-                                    <input type="submit" className="btn btn-login float-right" disabled={loading} value="Register" />
+                                    <input type="submit" className="btn btn-primary" disabled={loading} value="Register" />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group pt-3">
                                     Already have an account? Please <Link to="/login">Login</Link>
                                 </div>
                             </form>

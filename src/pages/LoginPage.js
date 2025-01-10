@@ -1,60 +1,60 @@
 import { useState } from 'react';
 import { LoginApi } from '../services/Api';
-import {storeUserData } from '../services/Storage'
+import { storeUserData } from '../services/Storage'
 import { isAuthenticated } from '../services/Auth';
 import { Link, Navigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 
-export default function LoginPage (){
+export default function LoginPage() {
 
     const initialStateErrors = {
-        email:{required:false},
-        password:{required:false},
-        custom_error:null
+        email: { required: false },
+        password: { required: false },
+        custom_error: null
     };
-    const [errors,setErrors] = useState(initialStateErrors);
-    
-    const [loading,setLoading]  =  useState(false);
+    const [errors, setErrors] = useState(initialStateErrors);
 
-    const [inputs,setInputs] = useState({
-        email:"",
-        password:"",
+    const [loading, setLoading] = useState(false);
+
+    const [inputs, setInputs] = useState({
+        email: "",
+        password: "",
     })
-    const handleInput = (event)=>{
-        setInputs({...inputs,[event.target.name]:event.target.value})
+    const handleInput = (event) => {
+        setInputs({ ...inputs, [event.target.name]: event.target.value })
     }
 
-    const handleSubmit = (event)=>{
+    const handleSubmit = (event) => {
         console.log(inputs);
         event.preventDefault();
-        let errors =initialStateErrors; 
-        let hasError = false; 
-        
+        let errors = initialStateErrors;
+        let hasError = false;
+
         if (inputs.email == "") {
-            errors.email.required =true;
-            hasError=true;
+            errors.email.required = true;
+            hasError = true;
         }
         if (inputs.password == "") {
-            errors.password.required =true;
-            hasError=true;
+            errors.password.required = true;
+            hasError = true;
         }
-       
+
         if (!hasError) {
             setLoading(true)
             //sending login api request
-            LoginApi(inputs).then((response)=>{
-               storeUserData(response.data.idToken);
-            }).catch((err)=>{
-               if (err.code="ERR_BAD_REQUEST") {
-                    setErrors({...errors,custom_error:"Invalid Credentials."})
-               }
+            LoginApi(inputs).then((response) => {
+                storeUserData(response.data.idToken);
+            }).catch((err) => {
+                if (err.code = "ERR_BAD_REQUEST") {
+                    setErrors({ ...errors, custom_error: "Invalid Credentials." })
+                }
 
-            }).finally(()=>{
+            }).finally(() => {
                 setLoading(false)
             })
         }
-        setErrors({...errors});
+        setErrors({ ...errors });
 
     }
 
@@ -66,54 +66,69 @@ export default function LoginPage (){
 
     return (
         <div>
-            <NavBar/>
-            <section className="login-block">
+            <NavBar />
+            <section className="register-block">
                 <div className="container">
-                    <div className="row ">
-                        <div className="col login-sec">
-                            <h2 className="text-center">Login Now</h2>
-                            <form onSubmit={handleSubmit} className="login-form" action="">
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail1" className="text-uppercase">Email</label>
-                                <input type="email"  className="form-control" onChange={handleInput} name="email"  id="" placeholder="email"  />
-                                { errors.email.required?
-                                (<span className="text-danger" >
-                                    Email is required.
-                                </span>):null
-                                }
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPassword1" className="text-uppercase">Password</label>
-                                <input  className="form-control" type="password" onChange={handleInput}  name="password" placeholder="password" id="" />
-                                { errors.password.required?
-                                (<span className="text-danger" >
-                                    Password is required.
-                                </span>):null
-                                }
-                            </div>
-                            <div className="form-group">
-                                {loading ?
-                                (<div  className="text-center">
-                                    <div className="spinner-border text-primary " role="status">
-                                        <span className="sr-only">Loading...</span>
+                    <div className="container d-flex justify-content-center align-items-center">
+                        <div className="row w-100">
+                            <div className="col-md-4 mx-auto login-sec">
+                                <h2 className="text-center">Login Now</h2>
+                                <form onSubmit={handleSubmit} className="login-form" >
+                                    <div className="form-group pt-3">
+                                        <label htmlFor="exampleInputEmail1" className="text-uppercase">Email</label>
+                                        <input
+                                            type="email"
+                                            className="form-control border-dark"
+                                            onChange={handleInput}
+                                            name="email"
+                                            placeholder="email"
+                                        />
+                                        {errors.email.required ? (
+                                            <span className="text-danger">Email is required.</span>
+                                        ) : null}
                                     </div>
-                                </div>):null
-                                }
-                                <span className="text-danger" >
-                                { errors.custom_error?
-                                (<p>{errors.custom_error}</p>)
-                                :null
-                                }
-                                </span>
-                                <input  type="submit" className="btn btn-login float-right" disabled={loading}  value="Login" />
+                                    <div className="form-group pt-3">
+                                        <label htmlFor="exampleInputPassword1" className="text-uppercase">Password</label>
+                                        <input
+                                            className="form-control border-dark "
+                                            type="password"
+                                            onChange={handleInput}
+                                            name="password"
+                                            placeholder="password"
+                                        />
+                                        {errors.password.required ? (
+                                            <span className="text-danger">Password is required.</span>
+                                        ) : null}
+                                    </div>
+                                    <div className="form-group pt-3">
+                                        {loading ? (
+                                            <div className="text-center">
+                                                <div className="spinner-border text-primary" role="status">
+                                                    <span className="sr-only">Loading...</span>
+                                                </div>
+                                            </div>
+                                        ) : null}
+                                        {errors.custom_error ? (
+                                            <span className="text-danger">
+                                                <p>{errors.custom_error}</p>
+                                            </span>
+                                        ) : null}
+                                        <input
+                                            type="submit"
+                                            className="btn btn-primary "
+                                            disabled={loading}
+                                            value="Login"
+                                        />
+                                    </div>
+                                    <div className="clearfix"></div>
+                                    <div className="form-group text-center pt-3">
+                                        Create new account? Please <Link to="/register">Register</Link>
+                                    </div>
+                                </form>
                             </div>
-                            <div className="clearfix"></div>
-                            <div className="form-group">
-                            Create new account ? Please <Link  to="/register">Register</Link>
-                            </div>
-                            </form>
                         </div>
                     </div>
+
                 </div>
                 <Footer />
             </section>

@@ -1,9 +1,5 @@
 # Login App
 
-![License](https://img.shields.io/github/license/thulasidharan96/login-app)
-![Stars](https://img.shields.io/github/stars/thulasidharan96/login-app)
-![Issues](https://img.shields.io/github/issues/thulasidharan96/login-app)
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -16,14 +12,14 @@
 
 ## Introduction
 
-The **Login App** is a user authentication application that allows users to register, log in, and log out securely. This app is built with [Technology Stack] and follows best practices for authentication and security.
+The **Login App** is a user authentication application that allows users to register, log in, and log out securely. This app is built with modern web technologies and follows best practices for authentication and security.
 
 ## Features
 
 - User registration
 - User login
 - User logout
-- Contact US
+- Contact Us
 
 ## Installation
 
@@ -47,7 +43,7 @@ To get a local copy up and running, follow these steps:
 4. **Set up environment variables:**
     Create a `.env` file in the root directory and add the necessary environment variables.
     ```env
-    Web3-Form Public Key
+    REACT_APP_WEB3FORM_PUBLIC_KEY=your_public_key_here
     ```
 
 5. **Run the application:**
@@ -75,6 +71,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Thulasidharan 
+Thulasidharan
 
 Project Link: [https://github.com/thulasidharan96/login-app](https://github.com/thulasidharan96/login-app)
