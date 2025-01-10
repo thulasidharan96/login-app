@@ -36,6 +36,7 @@ export default function DashboardPage() {
           navigate('/login');
         }}
       />
+
       <main style={{ textAlign: "center", minHeight: "71vh" }}>
         <h3 className="text-center mt-5">Dashboard</h3>
         {loading ? (
@@ -43,19 +44,36 @@ export default function DashboardPage() {
         ) : error ? (
           <p className="text-danger">{error}</p>
         ) : (
-          <div>
+          <div className="col pt-3">
             <p>Hi {user.name}</p>
             <p>Your email is {user.email}</p>
-            <button onClick={() => alert(`Firebase ID = ${user.localId}`)} style={{padding:10,margin:10,borderRadius:5}}>
+            <div class="d-flex justify-content-center"><button
+              onClick={() => alert(`Firebase ID = ${user.localId}`)}
+              className="btn btn-warning"
+            >
               Show ID
-            </button>
-            <button onClick={() => navigate('/contact')} style={{padding:10,margin:10,borderRadius:5}}>
+            </button></div>
+            <div className="pt-3">
+            <button
+              onClick={() => navigate('/contact')}
+              className="btn btn-success"
+            >
               Contact Us
             </button>
+            <div className="pt-3">
+              <button onClick={()=>navigate('/updateProfile')} className="btn btn-primary">
+                Update Profile
+              </button>
+            </div>
+            <div className="pt-3">
+            <button className="btn btn-primary">View Profile</button>
+            </div>
+            </div>
           </div>
+
         )}
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
