@@ -60,14 +60,14 @@ export default function DashboardPage() {
             >
               Contact Us
             </button>
-            <div className="pt-3">
+            {/* <div className="pt-3">
               <button onClick={()=>navigate('/updateProfile')} className="btn btn-primary">
                 Update Profile
               </button>
             </div>
             <div className="pt-3">
             <button className="btn btn-primary">View Profile</button>
-            </div>
+            </div> */}
             </div>
           </div>
 
