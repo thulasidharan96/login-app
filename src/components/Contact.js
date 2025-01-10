@@ -50,6 +50,7 @@ const Contact = () => {
                 <form onSubmit={onSubmit}>
                     <h2>Contact Form</h2>
                     <div className='input-box'>
+                        <label>Your Name</label>
                         <input type='text' name='Name' className='field' placeholder='Enter Your Name' required />
                     </div>
                     <div className='input-box'>
