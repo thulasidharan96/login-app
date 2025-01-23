@@ -4,7 +4,6 @@ import { isAuthenticated } from "../services/Auth";
 export default function NavBar(props) {
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-            {/* Updated the <a> to <Link> for navigation */}
             <Link className="navbar-brand" to="/">Company XYZ</Link>
             <button
                 className="navbar-toggler"
@@ -41,13 +40,14 @@ export default function NavBar(props) {
                                 <Link className="nav-link" to="/dashboard">Dashboard</Link>
                             </li>
                             <li className="nav-item">
-                                <a
-                                    className="nav-link"
+                                <Link 
+                                    className="nav-link" 
+                                    to="/"
                                     onClick={props.logoutUser}
                                     style={{ cursor: "pointer" }}
                                 >
                                     Logout
-                                </a>
+                                </Link>
                             </li>
                         </>
                     )}
